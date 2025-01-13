@@ -1,8 +1,11 @@
 import os
 import uuid
+
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext as _
+
+
 class UserManager(BaseUserManager):
     def _create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -13,7 +16,6 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-# Create your models here.
     def create_user(self, email, password=None, **extra_fields):
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
