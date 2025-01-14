@@ -91,25 +91,25 @@ class Model(models.Model):
     hips = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+        return f"{self.model_user.first_name} {self.model_user.last_name}"
 
     @property
     def full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+        return f"{self.model_user.first_name} {self.model_user.last_name}"
 
 
 def model_image_file_path(instance, filename):
     _, extension = os.path.splitext(filename)
     filename = (
-        f"{slugify(instance.model.user.first_name)}"
-        f"-{slugify(instance.model.user.last_name)}"
+        f"{slugify(instance.model.model_user.first_name)}"
+        f"-{slugify(instance.model.model_user.last_name)}"
         f"-{uuid.uuid4()}.{extension}"
     )
     return os.path.join(
         "uploads",
         "models",
-        f"{slugify(instance.model.user.first_name)}"
-        f"-{slugify(instance.model.user.last_name)}",
+        f"{slugify(instance.model.model_user.first_name)}"
+        f"-{slugify(instance.model.model_user.last_name)}",
         filename,
     )
 
