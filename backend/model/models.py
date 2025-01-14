@@ -58,7 +58,7 @@ class Model(models.Model):
     model_user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="models"
+        related_name="models",
     )
     date_of_birth = models.DateField()
     city = models.CharField(max_length=100)
@@ -110,15 +110,13 @@ def model_image_file_path(instance, filename):
         "models",
         f"{slugify(instance.model.user.first_name)}"
         f"-{slugify(instance.model.user.last_name)}",
-        filename
+        filename,
     )
 
 
 class ModelImages(models.Model):
     model = models.ForeignKey(
-        Model,
-        on_delete=models.CASCADE,
-        related_name="images"
+        Model, on_delete=models.CASCADE, related_name="images"
     )
     image = models.ImageField(upload_to=model_image_file_path)
     caption = models.CharField(max_length=255, blank=True)
