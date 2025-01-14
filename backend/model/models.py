@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext as _
@@ -47,3 +48,47 @@ class User(AbstractUser):
         ordering = ["-id"]
         verbose_name = "User"
         verbose_name_plural = "Users"
+
+
+class Model(models.Model):
+    model_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="models"
+    )
+    date_of_birth = models.DateField()
+    city = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+
+    height = models.PositiveIntegerField()
+
+    HAIR_CHOICES = [
+        ("blonde", "Blonde"),
+        ("brown", "Brown"),
+        ("black", "Black"),
+        ("red", "Red"),
+        ("grey", "Gray"),
+        ("other", "Other"),
+    ]
+    hair = models.CharField(max_length=20, choices=HAIR_CHOICES)
+
+    EYE_COLOR_CHOICES = [
+        ("blue", "Blue"),
+        ("green", "Green"),
+        ("brown", "Brown"),
+        ("gray", "Gray"),
+        ("hazel", "Hazel"),
+    ]
+    eye_color = models.CharField(max_length=10, choices=EYE_COLOR_CHOICES)
+
+    shoe_size = models.FloatField()
+    bust = models.PositiveIntegerField()
+    waist = models.PositiveIntegerField()
+    hips = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.user.first_name} {self.user.last_name}"
+
+    @property
+    def full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
