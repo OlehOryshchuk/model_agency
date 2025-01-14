@@ -1,9 +1,17 @@
 asgiref==3.8.1
+black==24.10.0
+click==8.1.8
+colorama==0.4.6
 Django==5.1.4
 django-debug-toolbar==4.4.6
 django-phonenumber-field==8.0.0
 djangorestframework==3.15.2
+mypy-extensions==1.0.0
+packaging==24.2
+pathspec==0.12.1
 phonenumbers==8.13.52
+pillow==11.1.0
+platformdirs==4.3.6
 psycopg2-binary==2.9.10
 python-dotenv==1.0.1
 sqlparse==0.5.3
