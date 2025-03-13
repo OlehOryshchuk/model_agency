@@ -9,6 +9,6 @@ the ideal match effortlessly. You can visit [Model Agency website](https://model
 - UI Designer - [Roman Vovkanets](https://www.linkedin.com/in/roman-vovkanets-6574a6329/)
 - FrontEnd Developer - [Aleksander Suszko](https://www.linkedin.com/in/aleksander-suszko/)
 - Backend Developer - [Olena Kalitsinska](https://www.linkedin.com/in/olena-kalitsinska-05a31a264/)
-- Test developer - [Oleh Oryshchuk](https://www.linkedin.com/in/oleh-oryshchuk-9b0714288/)
+- QA/Backend Developer - [Oleh Oryshchuk](https://www.linkedin.com/in/oleh-oryshchuk-9b0714288/)
 
 More details you can see in README.md files in frontend/ and backend/ directories.
